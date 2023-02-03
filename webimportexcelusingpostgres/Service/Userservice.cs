@@ -13,7 +13,7 @@ namespace webimportexcelusingpostgres.Service
         }
         public List<User> AddUsers(List<User> users)
         {
-         
+         //dell
             foreach (var item in users)
             {
                 _userDbContext.MyProperty.Add(item);
