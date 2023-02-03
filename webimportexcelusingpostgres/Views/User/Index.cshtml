@@ -1,0 +1,41 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using webimportexcelusingpostgres.Models
+@model IEnumerable<Users>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Users</title>
+</head>
+<body>
+    @using (Html.BeginForm("Index", "User", FormMethod.Post))
+    {
+        <input type="submit" value="Get Users" />
+    }
+    @if (Model.Count() > 0)
+    {
+        <hr />
+        <table cellpadding="0" cellspacing="0" border="1">
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+              
+            </tr>
+            @foreach (Users user in Model)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.UserAddress</td>
+                   
+                </tr>
+            }
+        </table>
+    }
+</body>
+</html>
