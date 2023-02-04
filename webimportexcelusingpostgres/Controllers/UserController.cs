@@ -48,9 +48,11 @@ namespace webimportexcelusingpostgres.Controllers
                 }
             }
 
+            
+
              var s=  _userService.AddUsers(users);
 
-            return View(users);
+            return View(s);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using webimportexcelusingpostgres.DbModels;
+﻿using AutoMapper;
+using System;
+using webimportexcelusingpostgres.DbModels;
 using webimportexcelusingpostgres.Models;
 
 namespace webimportexcelusingpostgres.Service
@@ -11,7 +13,7 @@ namespace webimportexcelusingpostgres.Service
         {
            _userDbContext = userDbContext;
         }
-        public List<User> AddUsers(List<User> users)
+        public List<Users> AddUsers(List<User> users)
         {
          //dell
             foreach (var item in users)
@@ -20,7 +22,21 @@ namespace webimportexcelusingpostgres.Service
                 _userDbContext.SaveChanges();
             }
 
-            return users;
+            List<Users> userModel = new List<Users>();
+            foreach (var item in users)
+            {
+                userModel.Add(new Users()
+                {
+
+                    UserAddress = item.UserAddress,
+                    UserName = item.UserName,
+                });
+            }
+
+
+            var s1 = userModel;
+
+            return userModel;
         }
     }
 }

@@ -6,6 +6,6 @@ namespace webimportexcelusingpostgres.Service
     public interface IUserService
     {
 
-        List<User> AddUsers(List<User> users);
+        List<Users> AddUsers(List<User> users);
     }
 }
